@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:public": "cd public/app && npm run build",
+    "start:public": "cd public/app && npm run start",
+    "build": "rimraf ./dist && tsc",
+    "start:dev": "cross-env NODE_ENV=development nodemon",
+    "start": "node dist/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
