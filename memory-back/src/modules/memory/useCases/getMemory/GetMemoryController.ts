@@ -14,8 +14,11 @@ export class GetMemoryController extends BaseController {
     }
 
     async executeImpl(req: express.Response, res: express.Response): Promise<any> {
-        const dto: GetMemoryRequestDTO = req["body"] as GetMemoryRequestDTO;
-
+        const dto: GetMemoryRequestDTO = {
+            date_range_top: req["query"].date_range_top,
+            date_range_bottom: req["query"].date_range_bottom,
+        } as GetMemoryRequestDTO;
+        
         try {
             const result = await this.useCase.execute(dto);
 
