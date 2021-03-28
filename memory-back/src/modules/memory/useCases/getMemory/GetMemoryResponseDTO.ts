@@ -3,7 +3,7 @@ export interface GetMemoryResponseDTO {
 }
 
 interface MemoryResponseDTO {
-  host_name: string;
-  created_at: string | Date;
-  memory_num: number;
+    host_name: string;
+    created_at: string | Date;
+    memory_num: number;
 }
