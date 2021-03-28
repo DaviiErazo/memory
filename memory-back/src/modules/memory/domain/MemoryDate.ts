@@ -42,6 +42,7 @@ export class MemoryDate extends ValueObject<DateMemoryFormatted> {
                 date_range_top: new Date(props.date_range_top),
                 date_range_bottom: new Date(props.date_range_bottom),
             };
+        
         } catch (err) {
             return Result.fail<MemoryDate>("An error ocurred fwhile ormatting string to Date");
         }

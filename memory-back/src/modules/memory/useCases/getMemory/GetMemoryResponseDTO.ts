@@ -1,3 +1,5 @@
+import { UniqueEntityID } from "../../../../shared/domain/UniqueEntityID";
+
 export interface GetMemoryResponseDTO {
     memories: MemoryResponseDTO[];
 }
@@ -5,5 +7,5 @@ export interface GetMemoryResponseDTO {
 interface MemoryResponseDTO {
     host_name: string;
     created_at: string | Date;
-    memory_num: number;
+    memory: number;
 }

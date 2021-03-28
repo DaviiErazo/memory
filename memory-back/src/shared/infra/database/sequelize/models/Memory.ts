@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
     const Memory = sequelize.define("memory", {
         memory_id: {
             type: DataTypes.UUID,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             defaultValue: 1,
         },
-        create_at: {
+        created_at: {
             type: DataTypes.DATE,
             allowNull: false,
         },

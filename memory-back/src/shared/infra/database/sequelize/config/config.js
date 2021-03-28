@@ -53,4 +53,7 @@ module.exports.connection =
                   idle: 10000,
               },
               logging: false,
+              define: {
+                  timestamps: false,
+              },
           });

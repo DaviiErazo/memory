@@ -7,7 +7,7 @@ import { MemoryId } from "./memoryId";
 interface MemoryProps {
     memory_num: number;
     host_name: string;
-    create_at: Date;
+    created_at: Date;
 }
 
 export class Memory extends Entity<MemoryProps> {
@@ -19,8 +19,8 @@ export class Memory extends Entity<MemoryProps> {
         return this.props.host_name;
     }
 
-    get create_at(): Date {
-        return this.props.create_at;
+    get created_at(): Date {
+        return this.props.created_at;
     }
 
     get memory_num(): number {
@@ -34,7 +34,7 @@ export class Memory extends Entity<MemoryProps> {
     public static create(props: MemoryProps, id?: UniqueEntityID): Result<Memory> {
         const guardResult = Guard.againstNullOrUndefinedBulk([
             { argument: props.host_name, argumentName: "host_name" },
-            { argument: props.create_at, argumentName: "create_at" },
+            { argument: props.created_at, argumentName: "create_at" },
             { argument: props.memory_num, argumentName: "memory_num" },
         ]);
 

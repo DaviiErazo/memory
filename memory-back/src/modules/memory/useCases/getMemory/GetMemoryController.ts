@@ -30,8 +30,8 @@ export class GetMemoryController extends BaseController {
                     memories: memoryDetails.map((m) => {
                         return {
                             host_name: m.host_name,
-                            created_at: m.create_at,
-                            memory_num: m.memory_num,
+                            created_at: m.created_at,
+                            memory: m.memory_num,
                         };
                     }),
                 });

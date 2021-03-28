@@ -17,13 +17,13 @@ export class CreateMemoryUseCase implements UseCase<CreateMemoryDTO, Promise<Res
     async execute(request: CreateMemoryDTO): Promise<Response> {
         const host_name = request.host_name;
         const memory_num = request.memory_num;
-        const create_at = new Date();
+        const created_at = new Date();
 
         try {
             const memoryOrError: Result<Memory> = Memory.create({
                 host_name,
                 memory_num,
-                create_at,
+                created_at,
             });
 
             if (memoryOrError.isFailure) {
@@ -32,7 +32,7 @@ export class CreateMemoryUseCase implements UseCase<CreateMemoryDTO, Promise<Res
 
             const memory: Memory = memoryOrError.getValue();
 
-            // await this.memoryRepo.save(memory);
+            await this.memoryRepo.save(memory);
 
             return right(Result.ok<Memory>(memory));
         } catch (err) {

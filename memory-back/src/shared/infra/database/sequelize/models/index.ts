@@ -5,10 +5,6 @@ import * as Sequelize from "sequelize";
 
 const sequelize = config.connection;
 
-console.log("***********************************************");
-console.log(sequelize);
-console.log("***********************************************");
-
 // turns base_user => BaseUser
 function toCamelCase(str) {
     const _ = str.indexOf("_");
