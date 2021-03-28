@@ -35,6 +35,7 @@ export class GetMemoryController extends BaseController {
                             host_name: m.host_name,
                             created_at: m.created_at,
                             memory: m.memory_num,
+                            id: m.MemoryId.id.toString(),
                         };
                     }),
                 });
