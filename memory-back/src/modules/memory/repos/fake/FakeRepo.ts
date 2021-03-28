@@ -1,4 +1,4 @@
-import { IMemoryRepo } from "../../repos/memoryRepo";
+import { IMemoryRepo } from "../memoryRepo";
 import { Memory } from "../../domain/Memory";
 
 export class FakeRepo implements IMemoryRepo {
@@ -7,7 +7,7 @@ export class FakeRepo implements IMemoryRepo {
             memory_id: memory.MemoryId.toString(),
             host_name: memory.host_name,
             memory: memory.memory_num,
-            create_at: memory.create_at,
+            create_at: memory.created_at,
         };
 
         // await MemoryModel.create(rawSequelizeMemory);
@@ -18,7 +18,7 @@ export class FakeRepo implements IMemoryRepo {
     async getMemory({ date_range_top, date_range_bottom }): Promise<Memory[]> {
         const memoryOrError = Memory.create({
             host_name: "david",
-            create_at: new Date(),
+            created_at: new Date(),
             memory_num: 12,
         });
 

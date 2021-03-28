@@ -1,5 +1,5 @@
 import { GetMemoryUseCase } from "./GetMemoryUseCase";
-import { FakeRepo } from "../../repos/fakeRepo/FakeRepo";
+import { FakeRepo } from "../../repos/fake/FakeRepo";
 import { Memory } from "../../domain/Memory";
 
 test("Should be able to get memories", async () => {

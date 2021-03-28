@@ -1,5 +1,5 @@
 import { CreateMemoryUseCase } from "./CreateMemoryUseCase";
-import { FakeRepo } from "../../repos/fakeRepo/FakeRepo";
+import { FakeRepo } from "../../repos/fake/FakeRepo";
 
 test("Should be able to store memory", async () => {
     const req = {
