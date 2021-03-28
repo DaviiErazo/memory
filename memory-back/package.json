@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:create:dev": "cross-env NODE_ENV=development node scripts/db/create",
     "build:public": "cd public/app && npm run build",
     "start:public": "cd public/app && npm run start",
     "build": "rimraf ./dist && tsc",
     "start:dev": "cross-env NODE_ENV=development nodemon",
     "start": "node dist/index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "migrate:dev": "npm run build && cross-env NODE_ENV=development sequelize db:migrate",
+    "migrate:test": "npm run build && cross-env NODE_ENV=test dotenv -e .env sequelize db:migrate --env test",
+    "migrate:prod": "sequelize db:migrate --env production"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +22,7 @@
     "@types/express": "github:types/express",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",
+    "@types/uuid": "^8.3.0",
     "axios": "^0.21.1",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.19.0",
@@ -31,8 +37,12 @@
     "jest": "^26.6.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "sqlite3": "^5.0.2",
     "ts-jest": "^26.5.4",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "uuid": "^8.3.2"
   }
 }

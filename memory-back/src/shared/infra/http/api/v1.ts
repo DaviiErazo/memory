@@ -1,4 +1,5 @@
 import express from 'express';
+import { memoryRouter } from '../../../../modules/memory/infra/http/routes';
 
 // Import routes
 
@@ -8,6 +9,6 @@ v1Router.get('/ping', (req, res) => {
     return res.json("pong");
 })
 
-//  v1Router.use('/memory', memoryRouter);
+v1Router.use('/memory', memoryRouter);
 
 export { v1Router }
