@@ -4,19 +4,19 @@ import { UseCase } from "../../../../shared/core/UseCase";
 import { Memory } from "../../domain/Memory";
 import { MemoryDate } from "../../domain/MemoryDate";
 import { IMemoryRepo } from "../../repos/memoryRepo";
-import { GetMemoryDTO } from "./GetMemoryDTO";
+import { GetMemoryRequestDTO } from "./GetMemoryRequestDTO";
 
-type Response = Either<AppError.UnexpectedError, Result<Memory[] | void>>;
+type Response = Either<AppError.UnexpectedError, Result<Memory[]>>;
 
 export class GetMemoryUseCase
-  implements UseCase<GetMemoryDTO, Promise<Response>> {
+  implements UseCase<GetMemoryRequestDTO, Promise<Response>> {
   private memoryRepo: IMemoryRepo;
 
   constructor(memoryRepo: IMemoryRepo) {
     this.memoryRepo = memoryRepo;
   }
 
-  public async execute(req: GetMemoryDTO): Promise<Response> {
+  public async execute(req: GetMemoryRequestDTO): Promise<Response> {
     let memories: Memory[];
 
     const RangeDateOrError = MemoryDate.create(req);
