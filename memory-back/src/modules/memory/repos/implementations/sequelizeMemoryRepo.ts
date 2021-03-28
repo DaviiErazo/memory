@@ -1,6 +1,11 @@
 import { Memory } from "../../domain/Memory";
 import { IMemoryRepo } from "../memoryRepo";
 
+interface DateMemoryFormatted {
+  date_range_top: Date;
+  date_range_bottom: Date;
+}
+
 export class SequelizeUserRepo implements IMemoryRepo {
   private models: any;
 
@@ -23,5 +28,10 @@ export class SequelizeUserRepo implements IMemoryRepo {
     await MemoryModel.create(rawSequelizeMemory);
 
     return;
+  }
+
+  async getMemory({date_range_top, date_range_bottom}: DateMemoryFormatted ) : Promise<Memory[]> {
+    const MemoryModel = this.models.Memory;
+    return [];
   }
 }

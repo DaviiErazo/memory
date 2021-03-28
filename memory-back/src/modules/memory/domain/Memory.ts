@@ -16,15 +16,15 @@ export class Memory extends Entity<MemoryProps> {
   }
 
   get host_name(): string {
-    return this.host_name;
+    return this.props.host_name;
   }
 
-  get create_at(): string {
-    return this.create_at;
+  get create_at(): Date {
+    return this.props.create_at;
   }
 
-  get memory_num(): string {
-    return this.memory_num;
+  get memory_num(): number {
+    return this.props.memory_num
   }
 
   private constructor(props: MemoryProps, id?: UniqueEntityID) {

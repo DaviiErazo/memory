@@ -5,7 +5,7 @@ import { Memory } from "../../domain/Memory";
 import { IMemoryRepo } from "../../repos/memoryRepo";
 import { CreateMemoryDTO } from "./createMemoryDto";
 
-type Response = Either<AppError.UnexpectedError | Result<any>, Result<void>>;
+type Response = Either<AppError.UnexpectedError, Result<Memory | void>>;
 
 export class CreateMemoryUseCase
   implements UseCase<CreateMemoryDTO, Promise<Response>> {
@@ -35,9 +35,9 @@ export class CreateMemoryUseCase
 
       const memory: Memory = memoryOrError.getValue();
 
-      await this.memoryRepo.save(memory);
+      // await this.memoryRepo.save(memory);
 
-      return right(Result.ok<void>());
+      return right(Result.ok<Memory>(memory));
     } catch (err) {
       return left(new AppError.UnexpectedError(err)) as Response;
     }
