@@ -4,7 +4,7 @@ import { UniqueEntityID } from "../../../shared/domain/UniqueEntityID";
 
 export class MemoryMap implements Mapper<Memory> {
     public static toDomain(raw: any): Memory {
-        const userOrError = Memory.create(
+        const memoryOrError = Memory.create(
             {
                 host_name: raw.host_name,
                 memory_num: raw.memory,
@@ -12,9 +12,9 @@ export class MemoryMap implements Mapper<Memory> {
             },
             new UniqueEntityID(raw.memory_id));
 
-        userOrError.isFailure ? console.log(userOrError.error) : "";
+        memoryOrError.isFailure ? console.log(memoryOrError.error) : "";
 
-        return userOrError.isSuccess ? userOrError.getValue() : null;
+        return memoryOrError.isSuccess ? memoryOrError.getValue() : null;
     }
 
     public static async toPersistence(memory: Memory): Promise<any> {
